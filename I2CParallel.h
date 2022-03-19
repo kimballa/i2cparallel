@@ -1,4 +1,6 @@
 // (c) Copyright 2021 Aaron Kimball
+// This library is licensed under the terms of the BSD 3-Clause license.
+// See the accompanying LICENSE.txt file for full license text.
 //
 // Library to use the PCF8574 / PCF8574A
 // Also for pin-compatible fast-mode devices like NXP PCA8574[A].

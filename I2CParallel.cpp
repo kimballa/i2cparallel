@@ -1,4 +1,6 @@
 // (C) Copyright 2021 Aaron Kimball
+// This library is licensed under the terms of the BSD 3-Clause license.
+// See the accompanying LICENSE.txt file for full license text.
 //
 // Library to use the PCF8574 / PCF8574A
 // Remote 8-Bit I/O Expander for I2C Bus
