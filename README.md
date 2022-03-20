@@ -19,16 +19,14 @@ I build this with my [Arduino makefile](https://github.com/kimballa/arduino-make
 * Create `~/arduino_mk.conf` from the template in that directory and customize it to your board
   and local environment. See other one-time setup instructions in that project's README.md and/or
   the comment header of `arduino.mk`.
-* You also need to compile `Wire` for your architecture and `make install` it.
-  TODO(aaron): Add appropriate incantation after Wire first-time-setup capability is
-  available in the arduino.mk repository.
+* You also need to compile `Wire` for your architecture by running `arduino-makefile/install-wire.sh`.
 * Build this library with `make install`
 
 Usage
 -----
 
 * Include `I2CParallel.h` in your sketch source file.
-* Add `libs := wire i2cparallel` to your arduino.mk-driven Makefile.
+* Add `libs := Wire i2cparallel` to your arduino.mk-driven Makefile.
 
 License
 -------
