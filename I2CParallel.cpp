@@ -37,6 +37,11 @@ void I2CParallel::init(const uint8_t i2cAddr, const uint32_t busSpeed) {
 #endif
 }
 
+void I2CParallel::initInterrupt(const uint8_t digitalPinNum, void (*isr)()) {
+  pinMode(digitalPinNum, INPUT_PULLUP);
+  attachInterrupt(digitalPinToInterrupt(digitalPinNum), isr, FALLING);
+}
+
 void I2CParallel::setByte(const uint8_t val) {
   Wire.beginTransmission(_i2cAddr);
   Wire.write(val);

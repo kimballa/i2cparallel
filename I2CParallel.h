@@ -10,8 +10,6 @@
 //
 // This depends on the <Wire> library for I2C communication.
 // This library is lightweight: just 4 bytes of memory and < 100 bytes of code.
-//
-// This library does not implement the interrupt logic of the PCF8574.
 
 #ifndef I2C_PARALLEL_H
 #define I2C_PARALLEL_H
@@ -65,6 +63,11 @@ public:
   // Configure the 8-bit parallel bus with its expected 7-bit I2C address.
   // This must be within one of the two supported MIN_ADDR .. MAX_ADDR ranges.
   void init(const uint8_t i2cAddr, const uint32_t busSpeed=I2C_PARALLEL_MAX_BUS_SPEED);
+
+  // Configure the specified pin as the recipient of the INT_L signal from 
+  // the I2C parallel bus. The specified isr method will be called when INT_L
+  // is pulled low by the PCF8574. Add a pull-up between this pin and Vcc. 
+  void initInterrupt(const uint8_t digitalPinNum, void (*isr)());
 
   // Set the value to emit on the 8-bit bus. This value is latched and held
   // until overwritten by another setByte() or driven by the other side of the bus.
