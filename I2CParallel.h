@@ -94,6 +94,25 @@ public:
   void setAnd(const uint8_t val);
   void setXor(const uint8_t val);
 
+
+  /** Set the specified bit (0--7) high. */
+  void setBit(const uint8_t bitPos) {
+    if (bitPos > 7) {
+      return; /* Nothing to do. */
+    }
+    uint8_t mask = 1 << bitPos;
+    setOr(mask);
+  }
+
+  /** Set the specified bit (0--7) low. */
+  void clrBit(const uint8_t bitPos) {
+    if (bitPos > 7) {
+      return; /* Nothing to do. */
+    }
+    uint8_t mask = ~(1 << bitPos);
+    setAnd(mask);
+  }
+
   // Increment the bus arithmetically by 1; 0xFF + 1 rolls back to 0.
   void increment();
 
