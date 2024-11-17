@@ -121,6 +121,20 @@ public:
     return setAnd(mask);
   }
 
+  /** Switch the state of the specified bit (0--7). */
+  size_t toggleBit(const uint8_t bitPos) {
+    if (bitPos > I2C_MAX_BIT_POS) {
+      return 0; /* Nothing to do. */
+    }
+    uint8_t setMask = 1 << bitPos;
+    if ((_state & setMask) != 0) {
+      // Bit already set. Clear it.
+      return clrBit(bitPos);
+    } else {
+      return setBit(bitPos);
+    }
+  }
+
   // Increment the bus arithmetically by 1; 0xFF + 1 rolls back to 0.
   size_t increment() { return setByte((_state + 1) & I2C_PARALLEL_MAX_VAL); };
 
